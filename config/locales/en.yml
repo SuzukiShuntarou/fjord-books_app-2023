@@ -7,6 +7,8 @@ en:
         restrict_dependent_destroy:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
+    models:
+      book: "books"
   date:
     abbr_day_names:
     - Sun
@@ -152,6 +154,9 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+    page_entries_info:
+      more_pages:
+        display_entries: "Showing %{first} to %{last} of %{total} %{entry_name}"
   number:
     currency:
       format:
@@ -228,6 +233,11 @@ en:
       title_edit: "Editing %{name}"
       error: error
       validation_error: "%{errors} prohibited this %{name} from being saved"
+    pagination:
+      first: "First"
+      last: "Last"
+      previous: "Prev"
+      next: "Next"
   controllers:
     common:
       notice_create: "%{name} was successfully created."
