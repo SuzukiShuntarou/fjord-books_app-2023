@@ -8,32 +8,27 @@ ja:
       delete: "本の削除"
     new:
       title: "本の新規登録"
-  _book:
-    title: "タイトル："
-    memo: "メモ:"
-    author: "著者:"
-    picture: "表紙："
   helpers:
     submit:
       create: "%{model}を登録"
       update: "%{model}を更新"
   links:
-    new: "新規登録"
-    show: "詳細"
-    index: "一覧へ戻る"
-    edit: "編集"
+    new: "%{model}の新規登録"
+    show: "%{model}の詳細"
+    index: "%{model}の一覧へ戻る"
+    edit: "%{model}の編集"
   layouts:
     language: "言語選択"
   flash:
-    create: '新規作成に成功しました。'
-    update: '編集内容の更新に成功しました。'
-    destroy: '削除に成功しました。'
+    create: "%{model}の新規作成に成功しました。"
+    update: "%{model}の編集内容の更新に成功しました。"
+    destroy: "%{model}の削除に成功しました。"
   activerecord:
     models:
-      book: '本'
+      book: "本"
     attributes:
       book:
-        title: 'タイトル'
-        memo: 'メモ'
-        author: '著者'
-        picture: '表紙'
+        title: "タイトル"
+        memo: "メモ"
+        author: "著者"
+        picture: "表紙"

@@ -7,12 +7,12 @@
     <div class="index-item">
       <%= render book %>
       <p>
-        <%= link_to t('links.show'), book %>
+        <%= link_to t('links.show', model: Book.model_name.human), book %>
       </p>
     </div>
   <% end %>
 </div>
 
 <nav class="page-nav">
-  <%= link_to t('links.new'), new_book_path %>
+  <%= link_to t('links.new', model: Book.model_name.human), new_book_path %>
 </nav>

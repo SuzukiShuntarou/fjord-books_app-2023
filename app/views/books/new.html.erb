@@ -5,5 +5,5 @@
 <br>
 
 <nav class="page-nav">
-  <%= link_to t('links.index'), books_path %>
+  <%= link_to t('links.index', model: Book.model_name.human(count: 2)), books_path %>
 </nav>

@@ -8,32 +8,29 @@ en:
       delete: "Destroy this book"
     new:
       title: "New Book"
-  _book:
-    title: "Title:"
-    memo: "Memo:"
-    author: "Author:"
-    picture: "Picture:"
   helpers:
     submit:
       create: "Create %{model}"
       update: "Update %{model}"
   links:
-    new: "New Book"
-    show: "Show this book"
-    index: "Back to books"
-    edit: "Edit this book"
+    new: "New %{model}"
+    show: "Show this %{model}"
+    index: "Back to %{model}"
+    edit: "Edit this %{model}"
   layouts:
     language: "Select Language"
   flash:
-    create: 'Book was successfully created.'
-    update: 'Book was successfully updated.'
-    destroy: 'Book was successfully destroyed.'
+    create: "%{model} was successfully created."
+    update: "%{model} was successfully updated."
+    destroy: "%{model} was successfully destroyed."
   activerecord:
     models:
-      book: 'Book'
+      book:
+        one: "Book"
+        other: "Books"
     attributes:
       book:
-        title: 'Title'
-        memo: 'Memo'
-        author: 'Author'
-        picture: 'Picture'
+        title: "Title"
+        memo: "Memo"
+        author: "Author"
+        picture: "Picture"
