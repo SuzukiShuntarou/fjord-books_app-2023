@@ -120,6 +120,12 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    page_entries_info:
+      one_page:
+        display_entries:
+          other: "登録されている<b> %{count}</b> 件の%{entry_name}を表示 "
+      more_pages:
+        display_entries: "全%{total}件中 %{first}&nbsp;-&nbsp;%{last}件の%{entry_name}が表示されています"
   number:
     currency:
       format:
@@ -194,6 +200,11 @@ ja:
       title_edit: "%{name}の編集"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
+    pagination:
+      first: "最初"
+      last: "最後"
+      previous: "前"
+      next: "次"
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
