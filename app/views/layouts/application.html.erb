@@ -13,13 +13,4 @@
   <body class="<%= params[:action] %>">
     <%= yield %>
   </body>
-  <footer>
-    <h2><%= t('layouts.language') %></h2>
-    <nav>
-      <ul>
-        <li><%= link_to 'English', url_for(locale: 'en') %></li>
-        <li><%= link_to '日本語', url_for(locale: 'ja') %></li>
-      </ul>
-    </nav>
-  </footer>
 </html>
