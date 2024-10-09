@@ -1,0 +1,34 @@
+ja:
+  books:
+    index:
+      title: "本の一覧"
+    edit:
+      title: "本の編集"
+    show:
+      delete: "本の削除"
+    new:
+      title: "本の新規登録"
+  helpers:
+    submit:
+      create: "%{model}を登録"
+      update: "%{model}を更新"
+  links:
+    new: "%{model}の新規登録"
+    show: "%{model}の詳細"
+    index: "%{model}の一覧へ戻る"
+    edit: "%{model}の編集"
+  layouts:
+    language: "言語選択"
+  flash:
+    create: "%{model}の新規作成に成功しました。"
+    update: "%{model}の編集内容の更新に成功しました。"
+    destroy: "%{model}の削除に成功しました。"
+  activerecord:
+    models:
+      book: "本"
+    attributes:
+      book:
+        title: "タイトル"
+        memo: "メモ"
+        author: "著者"
+        picture: "表紙"
