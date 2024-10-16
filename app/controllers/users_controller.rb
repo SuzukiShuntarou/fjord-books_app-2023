@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all.order(:id).page(params[:page]).per(5)
   end
 
   def show
-  end
-
-  def destroy
+    @user = User.find(params[:id])
   end
 end

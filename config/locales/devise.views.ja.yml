@@ -25,6 +25,35 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        name: 名前
+        postal_code: 郵便番号
+        address: 住所
+        profile: 自己紹介
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: は既に使用されています。
+              blank: が入力されていません。
+              too_short: は%{count}文字以上に設定して下さい。
+              too_long: は%{count}文字以下に設定して下さい。
+              invalid: は有効でありません。
+            password:
+              taken: は既に使用されています。
+              blank: が入力されていません。
+              too_short: は%{count}文字以上に設定して下さい。
+              too_long: は%{count}文字以下に設定して下さい。
+              invalid: は有効でありません。
+            password_confirmation:
+              confirmation: が一致していません。
+            name:
+              blank: が入力されていません。
+              too_short: は%{count}文字以上に設定して下さい。
+            bio:
+              too_long: は%{count}文字以下に設定して下さい。     
+            postal_code:
+              invalid: はXXX-XXXX形式だけの入力となります。
     models:
       user: ユーザー
   devise:

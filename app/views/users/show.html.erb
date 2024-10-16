@@ -1,2 +1,35 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<h1><%= t('views.common.title_show', name: i18n_pluralize(User.model_name.human)) %></h1>
+
+<div class="show-item">
+  <p>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
+    <%= @user.name %>
+  </p>
+  <p>
+    <strong><%= User.human_attribute_name(:email) %>:</strong>
+    <%= @user.email %>
+  </p>
+  <p>
+    <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
+    <%= @user.postal_code %>
+  </p>
+  <p>
+    <strong><%= User.human_attribute_name(:address) %>:</strong>
+    <%= @user.address %>
+  </p>
+  <p>
+    <strong><%= User.human_attribute_name(:profile) %>:</strong>
+    <%= @user.profile %>
+  </p>
+</div>
+
+<nav class="page-nav">
+  <%= link_to t('views.common.back', name: i18n_pluralize(User.model_name.human.downcase)), users_path %> |
+  <% if @user.id == current_user.id %>
+    <%= link_to t('views.common.edit', name: User.model_name.human.downcase), edit_user_registration_path %>
+  <% else %>
+    <%= link_to t('views.user.show', name: current_user.name), user_path(current_user) %>
+  <% end %>
+</nav>

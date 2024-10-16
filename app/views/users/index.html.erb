@@ -1,2 +1,18 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1><%= t('views.common.title_index', name: i18n_pluralize(User.model_name.human)) %></h1>
+
+<section>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= link_to "#{user.name}", user_path(user) %></li>
+    <% end %>
+  </ul>
+</section>
+
+<%= paginate @users %>
+<%= page_entries_info @users, entry_name: User.model_name.human %>
+
+<nav class="page-nav">
+  <%= link_to t('views.user.show', name: current_user.name), user_path(current_user) %> |
+  <%= link_to t('views.user.edit', name: current_user.name), edit_user_registration_path %> |
+  <%= link_to t('views.common.title_index', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
+</nav>

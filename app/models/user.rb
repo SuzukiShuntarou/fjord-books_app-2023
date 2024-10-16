@@ -3,4 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :name, presence: true, length: { minimum: 2 }
+  validates :profile, length: { maximum: 160 }
+  validates :postal_code,  allow_blank: true, format: { with: /\A\d{3}-\d{4}\z/ }
 end
