@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def index
-    @users = User.all.order(:id).page(params[:page]).per(5)
+    @users = User.all.order(:id).page(params[:page]).per(20)
   end
 
   def show
