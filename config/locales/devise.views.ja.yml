@@ -49,7 +49,6 @@ ja:
               confirmation: が一致していません。
             name:
               blank: が入力されていません。
-              too_short: は%{count}文字以上に設定して下さい。
             bio:
               too_long: は%{count}文字以下に設定して下さい。     
             postal_code:
