@@ -2,6 +2,11 @@
 ja:
   activerecord:
     errors:
+      models:
+        user:
+          attributes:
+            avatar:
+              content_type: の画像はpng, jpg, gifいずれかの形式にして下さい
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
