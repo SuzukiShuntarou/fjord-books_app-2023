@@ -11,6 +11,7 @@
   </head>
 
   <body class="<%= params[:action] %>">
+    <p style="color: green"><%= notice %></p>
     <%= yield %>
     <% if user_signed_in? %>
       <%= render 'layouts/footer' %>
