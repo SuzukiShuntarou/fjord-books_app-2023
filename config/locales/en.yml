@@ -152,6 +152,14 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          one:  "Display <b>%{count}</b> registered %{entry_name}"
+          other: "Display <b>%{count}</b> registered %{entry_name}"
+      more_pages:
+        display_entries: "Showing %{first} to %{last} of %{total} %{entry_name}"
   number:
     currency:
       format:
@@ -226,8 +234,12 @@ en:
       title_index: "%{name}"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+      title_show: "Show %{name}"
       error: error
       validation_error: "%{errors} prohibited this %{name} from being saved"
+    user:
+      show: "Display the details screen for %{name}"
+      edit: "Edit %{name}"
   controllers:
     common:
       notice_create: "%{name} was successfully created."
