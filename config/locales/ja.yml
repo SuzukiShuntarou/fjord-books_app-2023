@@ -120,6 +120,13 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    page_entries_info:
+      one_page:
+        display_entries:
+          one: "登録されている<b> %{count}</b> 件の%{entry_name}を表示 "
+          other: "登録されている<b> %{count}</b> 件の%{entry_name}を表示 "
+      more_pages:
+        display_entries: 全%{total}件中 %{first}&nbsp;-&nbsp;%{last}件の%{entry_name}が表示されています
   number:
     currency:
       format:
@@ -192,8 +199,13 @@ ja:
       title_index: "%{name}の一覧"
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      title_show: "%{name}の詳細"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
+      sign_out: ログアウト
+    user:
+      show: "%{name} の詳細画面を表示"
+      edit: "%{name}を編集"
     pagination:
       first: '« 最初'
       last: '最後 »'

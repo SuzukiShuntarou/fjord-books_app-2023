@@ -82,4 +82,10 @@ group :test do
 end
 
 gem 'carrierwave'
+gem 'devise'
+gem 'devise-i18n'
 gem 'kaminari'
+
+group :development do
+  gem 'letter_opener_web', '~> 3.0'
+end
