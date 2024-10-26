@@ -1,0 +1,27 @@
+<% @comments.each do |comment| %>
+  <% user = User.find_by(id: comment.user_id) %>
+  <div class="show-item">
+    <p>
+      <% if user.name.empty? %>
+        <strong><%= User.human_attribute_name(:email) %>:</strong>
+        <%= user.email %>
+      <% else %>
+        <strong><%= User.human_attribute_name(:name) %>:</strong>
+        <%= user.name %>
+      <% end %>
+    </p>
+
+    <p>
+      <strong><%= Comment.human_attribute_name(:content) %>:</strong>
+      <div class="profile_body"><%= comment.content %></div>
+    </p>
+
+    <p>
+      <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
+      <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+    </p>
+    <% if correct_user?(comment) %>
+      <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], method: :delete %>
+    <% end %>
+  </div>
+<% end %>

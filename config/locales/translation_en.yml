@@ -2,6 +2,9 @@ en:
   activerecord:
     models:
       book: Book
+      user: User
+      report: Daily Report
+      comment: Comment
 
     attributes:
       book:
@@ -9,3 +12,16 @@ en:
         memo: Memo
         picture: Picture
         title: Title
+      user:
+        name: Name
+        postal_code: Postal Code
+        address: Address
+        self_introduction: Bio
+        avatar: Avatar
+      report:
+        title: Daily Report Title
+        text: Daily Report Content
+        created_at: Created Date
+      comment:
+        content: Comment Content
+        created_at: Created Date

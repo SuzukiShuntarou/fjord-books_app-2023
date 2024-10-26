@@ -8,7 +8,10 @@ class ReportsController < ApplicationController
     # @reports = Report.order(:id).page(params[:page])
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @report.comments
+  end
 
   def new
     @report = Report.new
@@ -28,7 +31,7 @@ class ReportsController < ApplicationController
   end
 
   def update
-    if correct_user?
+    if correct_user?(@report)
       respond_to do |format|
         if @report.update(report_params)
           format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: Report.model_name.human) }
@@ -43,7 +46,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    if correct_user?
+    if correct_user?(@report)
       @report.destroy
 
       respond_to do |format|

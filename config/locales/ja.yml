@@ -118,9 +118,9 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      create: "%{model}を作成する"
+      submit: "%{model}を保存する"
+      update: "%{model}を更新する"
   number:
     currency:
       format:

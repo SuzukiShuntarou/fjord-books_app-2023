@@ -45,6 +45,7 @@
     <% if alert.present? %>
       <p id="alert"><%= alert %></p>
     <% end %>
+    <p style="color: red"><%= flash[:danger] %></p>
     <%= yield %>
   </body>
 </html>

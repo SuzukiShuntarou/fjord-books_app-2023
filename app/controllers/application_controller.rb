@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
     user_path(current_user)
   end
 
-  def correct_user?
-    @user = User.find_by(id: @report[:user_id])
+  def correct_user?(report_or_comment)
+    @user = User.find_by(id: report_or_comment[:user_id])
     current_user == @user
   end
 end
