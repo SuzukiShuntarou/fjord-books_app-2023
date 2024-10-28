@@ -1,7 +1,7 @@
 <h1><%= t('views.common.title_show', name: Book.model_name.human) %></h1>
 
 <div class="show-item">
-  <%= render @book %>
+  <%= render 'books/book', book: @book %>
 </div>
 
 <nav class="page-nav">
@@ -12,5 +12,5 @@
 </nav>
 
 <h2><%= Comment.model_name.human.downcase %></h2>
-<%= render 'comments/comment', commentable: @book %>
-<%= render 'comments/form', commentable: @book %>
+<%= render 'comments/comment', commentable: @book, comments: @comments %>
+<%= render 'comments/form', commentable: @book, comment: @comment %>

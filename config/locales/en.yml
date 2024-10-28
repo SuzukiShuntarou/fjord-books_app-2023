@@ -140,6 +140,7 @@ en:
       wrong_length:
         one: is the wrong length (should be %{count} character)
         other: is the wrong length (should be %{count} characters)
+      wrong_user: "Only the user who created %{name} can update or delete it."
     template:
       body: 'There were problems with the following fields:'
       header:
@@ -230,6 +231,8 @@ en:
       validation_error: "%{errors} prohibited this %{name} from being saved"
       title_show: "%{name} details"
       sign_out: "Sign out"
+      back_one_page: Back to previous screen
+      no_comment: "%{name} has not been created yet"
   controllers:
     common:
       notice_create: "%{name} was successfully created."
