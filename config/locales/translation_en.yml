@@ -2,6 +2,9 @@ en:
   activerecord:
     models:
       book: Book
+      report:
+        one: Report
+        other: Reports
 
     attributes:
       book:

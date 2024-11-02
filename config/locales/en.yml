@@ -230,6 +230,8 @@ en:
       validation_error: "%{errors} prohibited this %{name} from being saved"
       title_show: "%{name} details"
       sign_out: "Sign out"
+      link: "This %{name} is linked from the following %{linked_name}."
+      from_link: "from link"
   controllers:
     common:
       notice_create: "%{name} was successfully created."

@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @mentioned_reports = @report.mentioned_reports
   end
 
   # GET /reports/new
@@ -20,18 +21,33 @@ class ReportsController < ApplicationController
 
   def create
     @report = current_user.reports.new(report_params)
-
-    if @report.save
+    begin
+      ActiveRecord::Base.transaction do
+        @report.save!
+        create_mentions(@report) if @report.content.include?(REPORTS_URI)
+      end
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
-    else
+    rescue ActiveRecord::RecordInvalid
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    if @report.update(report_params)
+    before_report = @report
+    begin
+      ActiveRecord::Base.transaction do
+        @report.update!(report_params)
+        if @report.content.include?(REPORTS_URI) && before_report.mentioning_reports.empty?
+          create_mentions(@report)
+        elsif !@report.content.include?(REPORTS_URI)
+          destroy_mentions(@report)
+        else
+          destroy_mentions(@report)
+          create_mentions(@report)
+        end
+      end
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
-    else
+    rescue ActiveRecord::RecordInvalid
       render :edit, status: :unprocessable_entity
     end
   end

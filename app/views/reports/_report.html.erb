@@ -6,7 +6,7 @@
 
   <p>
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
-    <%= format_content report.content %>
+    <div class="report_body"><%= sanitize(Rinku.auto_link(report.content), tags: %w(a), attributes: %w(href)) %></div>
   </p>
 
   <p>
