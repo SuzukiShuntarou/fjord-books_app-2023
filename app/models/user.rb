@@ -9,4 +9,12 @@ class User < ApplicationRecord
   end
   has_many :reports, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  def correct_user?(current_user)
+    id == current_user.id
+  end
+
+  def find_name_or_email
+    name.presence ? { attribute: :name, value: name } : { attribute: :email, value: email }
+  end
 end

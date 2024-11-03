@@ -12,7 +12,7 @@
 
   <p>
     <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
-    <%= report.created_at.strftime('%Y/%m/%d %H:%M') %>
+    <%= I18n.l(report.created_at, format: :long) %>
   </p>
 
   <p>

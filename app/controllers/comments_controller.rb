@@ -17,25 +17,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if correct_user?(@comment)
-      @comment.destroy
-      redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
-    else
-      flash[:danger] = t('errors.messages.wrong_user', name: Comment.model_name.human)
-      redirect_to @commentable
-    end
+    @comment.destroy!
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   def update
-    if correct_user?(@comment)
-      if @comment.update(comment_params)
-        redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @comment.update(comment_params)
+      redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
-      flash[:danger] = t('errors.messages.wrong_user', name: Comment.model_name.human)
-      redirect_to @commentable
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +36,6 @@ class CommentsController < ApplicationController
   end
 
   def set_comment
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
   end
 end
