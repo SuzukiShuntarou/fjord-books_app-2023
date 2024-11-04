@@ -15,6 +15,6 @@ class User < ApplicationRecord
   end
 
   def name_or_email_label
-    name.presence ? :name : :email
+    name.present? ? :name : :email
   end
 end
