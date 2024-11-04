@@ -1,0 +1,28 @@
+<% unless comments.empty? %>
+  <% comments.each do |comment| %>
+    <% unless comment.created_at.nil? %>
+      <div class="show-item">
+        <p>
+          <strong><%= User.human_attribute_name(comment.user.name_or_email_label) %>:</strong>
+          <%= comment.user.name_or_email %>
+        </p>
+
+        <p>
+          <strong><%= Comment.human_attribute_name(:content) %>:</strong>
+          <div class="profile_body"><%= comment.content %></div>
+        </p>
+
+        <p>
+          <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
+          <%= I18n.l(comment.created_at, format: :long) %>
+        </p>
+        <% if comment.user == current_user %>
+          <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_polymorphic_path([commentable, comment]) %>
+          <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), [commentable, comment], method: :delete %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= t('views.common.no_comment', name: Comment.model_name.human.downcase) %>
+<% end %>

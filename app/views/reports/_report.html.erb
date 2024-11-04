@@ -1,0 +1,28 @@
+<div id="<%= dom_id report %>">
+  <% user = report.user %>
+  <p>
+    <% if user.name.empty? %>
+      <strong><%= User.human_attribute_name(:email) %>:</strong>
+      <%= user.email %>
+    <% else %>
+      <strong><%= User.human_attribute_name(:name) %>:</strong>
+      <%= user.name %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+    <%= I18n.l(report.created_at, format: :long) %>
+  </p>
+
+  <p>
+    <strong><%= Report.human_attribute_name(:title) %>:</strong>
+    <%= report.title %>
+  </p>
+
+  <p>
+    <strong><%= Report.human_attribute_name(:text) %>:</strong>
+    <div class="profile_body"><%= report.text %></div>
+  </p>
+
+</div>

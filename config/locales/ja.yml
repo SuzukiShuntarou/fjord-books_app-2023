@@ -117,9 +117,9 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      create: "%{model}を作成する"
+      submit: "%{model}を保存する"
+      update: "%{model}を更新する"
   number:
     currency:
       format:
@@ -196,6 +196,8 @@ ja:
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
       title_show: "%{name}の詳細"
       sign_out: ログアウト
+      back_one_page: 前の画面に戻る
+      no_comment: "%{name}はまだ作成されていません"
     pagination:
       first: '« 最初'
       last: '最後 »'
