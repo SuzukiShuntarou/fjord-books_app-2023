@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      @comments = @commentable.comments
+      @comments = @commentable.comments.order(:id)
       render_show_path
     end
   end
