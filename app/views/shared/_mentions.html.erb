@@ -1,6 +1,6 @@
 <% unless report.mentioned_reports.empty? %>
   <%= t(
-    'views.common.link',
+    '.linked',
     name: Report.model_name.human.downcase,
     linked_name: Report.model_name.human(count: report.mentioned_reports.count).downcase
   ) %>
@@ -8,7 +8,7 @@
     <% mentioned_reports.each do |mentioned_report| %>
       <li>
         <%= link_to "#{mentioned_report.title}", report_path(mentioned_report.id) %>
-        <%= t('views.common.from_link') %>
+        <%= t('.from_link') %>
       </li>
     <% end %>
   </ul>

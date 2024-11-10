@@ -196,8 +196,6 @@ ja:
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
       title_show: "%{name}の詳細"
       sign_out: ログアウト
-      link: "この%{name}は以下の%{name}からリンクされています"
-      from_link: "からリンク"
     pagination:
       first: '« 最初'
       last: '最後 »'
@@ -218,6 +216,9 @@ ja:
       create: コメントする
       delete: 削除
       no_comments: コメントはまだありません
+    mentions:
+      linked: "この%{name}は以下の%{name}からリンクされています"
+      from_link: "からリンク"
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
