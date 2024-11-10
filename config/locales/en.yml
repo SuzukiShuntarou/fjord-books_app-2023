@@ -230,8 +230,6 @@ en:
       validation_error: "%{errors} prohibited this %{name} from being saved"
       title_show: "%{name} details"
       sign_out: "Sign out"
-      link: "This %{name} is linked from the following %{linked_name}."
-      from_link: "from link"
   controllers:
     common:
       notice_create: "%{name} was successfully created."
@@ -241,6 +239,14 @@ en:
     menu:
       menu: Menu
       sign_in_as: "Sign-in as %{user}"
+  shared:
+    comments:
+      create: Create Comment
+      delete: destroy
+      no_comments: There are no comments yet.
+    mentions:
+      linked: "This %{name} is linked from the following %{linked_name}."
+      from_link: "from link"
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
