@@ -26,4 +26,23 @@ class Report < ApplicationRecord
   def created_on
     created_at.to_date
   end
+
+  def create_mentions
+    mentioned_ids = extract_mentioned_ids(extract_urls(self))
+    mentioning_relationships.destroy_all
+    mentioned_ids.each do |id|
+      mentioning_relationships.create(mentioned_id: id)
+    end
+  end
+
+  def extract_urls(report)
+    report.content.scan(%r{http://127\.0\.0\.1:3000/reports/\d+}).to_s
+  end
+
+  REPORTS_URI = 'http://127.0.0.1:3000/reports/'
+
+  def extract_mentioned_ids(content_url)
+    urls = URI.extract(content_url, ['http']).uniq
+    urls.map { |url| url.split(REPORTS_URI)[1] }
+  end
 end
