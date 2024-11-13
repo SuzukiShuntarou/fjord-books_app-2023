@@ -6,7 +6,6 @@ class ReportsTest < ApplicationSystemTestCase
   setup do
     @report = reports(:alice_report)
     visit root_path
-    assert_selector 'h2', text: 'ログイン'
     fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログイン'

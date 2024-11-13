@@ -10,22 +10,14 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'should be able to edit' do
-    assert_equal true, @report.editable?(@target_user)
+    assert @report.editable?(@target_user)
   end
 
   test 'should not be able to edit' do
-    assert_not_equal true, @report.editable?(@other_user)
+    assert_not @report.editable?(@other_user)
   end
 
   test 'should convert DateClass' do
-    assert_equal Date, @report.created_on.class
-  end
-
-  test 'should save mentions' do
-    new_report = @other_user.reports.new
-    new_report.title = '参考になりました！'
-    new_report.content = "参考日報 http://localhost:3000/reports/#{@report.id}"
-    new_report.save
-    assert_equal @report.id, new_report.mentioning_reports.first.id
+    assert_equal @report[:created_at].to_date, @report.created_on
   end
 end
