@@ -28,19 +28,15 @@ class Report < ApplicationRecord
   end
 
   def create_mentions
-    mentioned_ids = extract_mentioned_ids(extract_urls(self))
+    mentioned_ids = extract_mentioned_ids(self)
+
     mentioning_relationships.destroy_all
     mentioned_ids.each do |id|
       mentioning_relationships.create!(mentioned_id: id)
     end
   end
 
-  def extract_urls(report)
-    report.content.scan(%r{http://127\.0\.0\.1:3000/reports/\d+}).to_s
-  end
-
-  def extract_mentioned_ids(content_url)
-    urls = URI.extract(content_url, ['http']).uniq
-    urls.map { |url| url.scan(%r{/reports/(\d+)}) }.flatten
+  def extract_mentioned_ids(report)
+    report.content.scan(%r{http://127\.0\.0\.1:3000/reports/(\d+)}).uniq.flatten
   end
 end
