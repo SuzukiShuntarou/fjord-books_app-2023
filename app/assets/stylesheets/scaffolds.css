@@ -144,6 +144,10 @@ h3 {
   background-color: var(--global-secondary-bgc-hover);
 }
 
+.report_body {
+  white-space: pre-wrap;
+}
+
 /****************
 page-nav
 ****************/
